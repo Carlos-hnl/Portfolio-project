@@ -1,0 +1,218 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  padding-top: 100px;
+  font-family: 'Open Sans', sans-serif;
+  background: black;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+}
+
+header {
+  background-color: #000000;
+  color: white;
+  padding: 1.5rem 5rem;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+  position: fixed;
+}
+
+#Logo {
+  justify-content: flex-start;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5rem;
+  z-index: 10;
+}
+
+#Logo img {
+  max-width: 100px;
+}
+
+nav {
+  z-index: 10;
+}
+
+nav ul {
+  list-style: none;
+  justify-content: flex-end;
+  display: flex;
+  gap: 1.5rem;
+  z-index: 10;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+  z-index: 10;
+}
+
+nav a:hover {
+  text-decoration: underline;
+  z-index: 10;
+}
+
+.Galeria {
+  padding-bottom: 5rem;
+}
+
+.carrossel {
+  display: flex;
+  gap: 14rem;
+  scroll-snap-type: x mandatory;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 8rem 30rem;
+  -ms-overflow-style: none; 
+}
+
+.carrossel::-webkit-scrollbar {
+  display: none;
+}
+
+.carrossel img {
+  flex: 0 0 auto;
+  max-height: 45rem;
+  height: auto;
+  object-fit: contain;
+  border-radius: 4px;
+  scroll-snap-align: start;
+}
+
+.carrossel img {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform: scale(0.9);
+  opacity: 0.6;
+}
+
+.carrossel img.destacada {
+  transform: scale(1.2);
+  opacity: 1;
+  z-index: 1;
+}
+
+
+.Galeria h2 {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.carrossel-container {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 100vw;
+  margin: auto;
+}
+
+.carrossel-container button {
+  all: unset;
+  cursor: pointer;
+}
+
+
+.carrossel-container button img {
+  max-height: 10rem;
+  max-width: auto
+}
+
+.fade {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 15rem;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.fade-left {
+  left: 0;
+  background: linear-gradient(to right, black 60%, transparent 100%);
+}
+
+.fade-right {
+  right: 0;
+  background: linear-gradient(to left, black 60%, transparent 100%);
+}
+
+.Galeria button {
+  z-index: 3;
+}
+
+.carrossel a img,
+.carrossel img {
+  transition: transform 0.3s ease;
+}
+
+.carrossel a:hover img,
+.carrossel img:hover {
+  transform: scale(0.95); /* Diminui para 90% */
+}
+
+.sobre {
+  background-color: #393939;
+  color: white;
+  padding: 6rem 5rem;
+}
+
+.sobre-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.sobre-texto {
+  flex: 1 1 50%;
+  font-size: 1.6rem;
+  line-height: 1.8;
+}
+
+.sobre-texto h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  color: white;
+}
+
+.sobre-imagem {
+  flex: 1 1 40%;
+  display: flex;
+  justify-content: center;
+}
+
+.sobre-imagem img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 1rem;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}

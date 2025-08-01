@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfólio - Artista Visual</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Open+Sans:ital,wght@0,400;0,700;1,400&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css" />
+  <script src="assets/script.js" defer></script>
+</head>
+
+<body>
+  <header>
+    <div id="Logo">
+      <img src="img/logo.png" alt="Logo">
+    </div>
+
+    <nav>
+      <ul>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#trabalhos">Trabalhos</a></li>
+        <li><a href="#prints">Prints</a></li>
+        <li><a href="#contatos">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="Galeria">
+    <div class="carrossel-container">
+      <button class="seta esquerda" onclick="scrollCarrossel(this, -1)">
+        <img src="img/seta-esquerda.png">
+      </button>
+
+      <section class="carrossel">
+        <a href="#"><img src="img/Inalcançável.png" id="vertical" alt="Obra 1"></a>
+        <a href="#"><img src="img/Livro Fechado.jpg" id="vertical" alt="Obra 2"></a>
+        <a href="#"><img src="img/Jardim.jpg" id="vertical" alt="Obra 3"></a>
+        <a href="#"><img src="img/Desespero (1).jpg" id="vertical" alt="Obra 5"></a>
+      </section>
+
+      <button class="seta direita" onclick="scrollCarrossel(this, 1)">
+        <img src="img/seta-direita.png">
+      </button>
+    </div>
+  </div>
+
+  <section id="sobre" class="sobre">
+    <div class="sobre-container">
+      <div class="sobre-texto">
+        <h2>Sobre</h2>
+        <p>
+          Sou um(a) artista visual apaixonado(a) por explorar emoções humanas por meio do grafite, lápis e fotografia.
+          Cada obra é um fragmento de sentimentos, inquietações e experiências que ganham forma em traços, sombras e
+          luz.
+        </p>
+        <p>
+          Meu trabalho transita entre o figurativo e o abstrato, sempre buscando provocar reflexões e despertar
+          sensações no observador.
+          Este portfólio é um convite para mergulhar nesse universo expressivo.
+        </p>
+      </div>
+      <div class="sobre-imagem">
+        <img src="img/IMG_20250707_015432_103.webp" />
+      </div>
+    </div>
+  </section>
+
+
+</body>
+
+</html>
