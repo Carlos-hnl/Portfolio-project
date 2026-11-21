@@ -1,75 +1,90 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfólio - Artista Visual</title>
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Open+Sans:ital,wght@0,400;0,700;1,400&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="assets/style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hnl — Portfólio</title>
+  <link rel="icon" href="img/logo.png">
+  <link rel="stylesheet" href="assets/style.css">
   <script src="assets/script.js" defer></script>
 </head>
-
 <body>
-  <header>
-    <div id="Logo">
-      <img src="img/logo.png" alt="Logo">
-    </div>
 
+  <header>
+    <a href="#topo" class="logo"><img src="img/logo.png" alt="Hnl"></a>
     <nav>
-      <ul>
-        <li><a href="#sobre">Sobre</a></li>
-        <li><a href="#trabalhos">Trabalhos</a></li>
-        <li><a href="#prints">Prints</a></li>
-        <li><a href="#contatos">Contato</a></li>
-      </ul>
+      <a href="#trabalhos">Trabalhos</a>
+      <a href="#contorcionismo">Contorcionismo</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#contato">Contato</a>
     </nav>
   </header>
 
-  <div class="Galeria">
-    <div class="carrossel-container">
-      <button class="seta esquerda" onclick="scrollCarrossel(this, -1)">
-        <img src="img/seta-esquerda.png">
-      </button>
+  <main id="topo">
+    <section class="intro">
+      <h1>Desenhos sobre o que não cabe em palavras.</h1>
+      <p>Grafite, lápis e fotografia.</p>
+    </section>
 
-      <section class="carrossel">
-        <a href="#"><img src="img/Inalcançável.png" id="vertical" alt="Obra 1"></a>
-        <a href="#"><img src="img/Livro Fechado.jpg" id="vertical" alt="Obra 2"></a>
-        <a href="#"><img src="img/Jardim.jpg" id="vertical" alt="Obra 3"></a>
-        <a href="#"><img src="img/Desespero (1).jpg" id="vertical" alt="Obra 5"></a>
-      </section>
+    <section id="trabalhos">
+      <h2>Trabalhos</h2>
+      <div class="grade">
+        <figure><img src="img/Inalcançável.png" alt="Inalcançável" loading="lazy"><figcaption>Inalcançável</figcaption></figure>
+        <figure><img src="img/Livro Fechado.jpg" alt="Livro Fechado" loading="lazy"><figcaption>Livro Fechado</figcaption></figure>
+        <figure><img src="img/Jardim.jpg" alt="Jardim" loading="lazy"><figcaption>Jardim</figcaption></figure>
+        <figure><img src="img/Desespero (1).jpg" alt="Desespero" loading="lazy"><figcaption>Desespero</figcaption></figure>
+        <figure><img src="img/Rastro.jpeg" alt="Rastro" loading="lazy"><figcaption>Rastro</figcaption></figure>
+        <figure><img src="img/IMG_20240302_183329_198.jpg" alt="Sem título" loading="lazy"><figcaption>Sem título</figcaption></figure>
+      </div>
+    </section>
 
-      <button class="seta direita" onclick="scrollCarrossel(this, 1)">
-        <img src="img/seta-direita.png">
-      </button>
-    </div>
-  </div>
+    <section id="contorcionismo">
+      <h2>Contorcionismo</h2>
+      <p class="sub">Série</p>
+      <div class="grade larga">
+        <figure><img src="img/Contorcionismo (2) (1).jpg" alt="Contorcionismo I" loading="lazy"><figcaption>I</figcaption></figure>
+        <figure><img src="img/Contorcionismo 2 (1) (1).jpg" alt="Contorcionismo II" loading="lazy"><figcaption>II</figcaption></figure>
+        <figure><img src="img/contorcionismo 3 (1).jpg" alt="Contorcionismo III" loading="lazy"><figcaption>III</figcaption></figure>
+      </div>
+    </section>
 
-  <section id="sobre" class="sobre">
-    <div class="sobre-container">
-      <div class="sobre-texto">
+    <section id="sobre" class="sobre">
+      <img src="img/IMG_20250707_015432_103.webp" alt="Foto do artista" loading="lazy">
+      <div>
         <h2>Sobre</h2>
         <p>
-          Sou um(a) artista visual apaixonado(a) por explorar emoções humanas por meio do grafite, lápis e fotografia.
-          Cada obra é um fragmento de sentimentos, inquietações e experiências que ganham forma em traços, sombras e
-          luz.
+          Sou um artista visual que explora emoções humanas por meio do grafite, do lápis e da fotografia.
+          Cada obra é um fragmento de sentimentos, inquietações e experiências que ganham forma em traços,
+          sombras e luz.
         </p>
         <p>
-          Meu trabalho transita entre o figurativo e o abstrato, sempre buscando provocar reflexões e despertar
-          sensações no observador.
-          Este portfólio é um convite para mergulhar nesse universo expressivo.
+          Meu trabalho transita entre o figurativo e o abstrato, buscando provocar reflexão e despertar
+          sensações em quem observa.
         </p>
       </div>
-      <div class="sobre-imagem">
-        <img src="img/IMG_20250707_015432_103.webp" />
-      </div>
-    </div>
-  </section>
+    </section>
 
+    <section id="contato">
+      <h2>Contato</h2>
+      <p>Encomendas, exposições ou só uma conversa:</p>
+      <p class="links">
+        <a href="mailto:seuemail@exemplo.com">seuemail@exemplo.com</a>
+        <a href="https://instagram.com/seuusuario" target="_blank" rel="noopener">Instagram</a>
+      </p>
+    </section>
+  </main>
+
+  <footer>© <span id="ano"></span> Hnl</footer>
+
+  <div class="visualizador" hidden>
+    <button class="fechar" aria-label="Fechar">×</button>
+    <button class="anterior" aria-label="Anterior">‹</button>
+    <figure>
+      <img src="" alt="">
+      <figcaption></figcaption>
+    </figure>
+    <button class="proxima" aria-label="Próxima">›</button>
+  </div>
 
 </body>
-
 </html>
