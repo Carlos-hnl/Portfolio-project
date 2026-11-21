@@ -1,176 +1,41 @@
-function scrollCarrossel(button, direction) {
-    const container = button.closest('.carrossel-container');
-    const slider = container.querySelector('.carrossel');
-    const scrollAmount = 300 * direction;
-    slider.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+// Ano atual no rodapé
+document.getElementById("ano").textContent = new Date().getFullYear();
+
+// Visualizador: clicar numa obra abre em tela cheia
+const obras = Array.from(document.querySelectorAll(".grade figure"));
+const visualizador = document.querySelector(".visualizador");
+const imagemGrande = visualizador.querySelector("img");
+const legenda = visualizador.querySelector("figcaption");
+let atual = 0;
+
+function mostrar(indice) {
+  atual = (indice + obras.length) % obras.length;
+  const img = obras[atual].querySelector("img");
+  imagemGrande.src = img.src;
+  imagemGrande.alt = img.alt;
+  legenda.textContent = img.alt;
+  visualizador.hidden = false;
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  const containers = document.querySelectorAll(".carrossel-container");
+function fechar() {
+  visualizador.hidden = true;
+}
 
-  containers.forEach(container => {
-    const fadeLeft = document.createElement("div");
-    fadeLeft.classList.add("fade", "fade-left");
+obras.forEach((obra, i) => obra.addEventListener("click", () => mostrar(i)));
 
-    const fadeRight = document.createElement("div");
-    fadeRight.classList.add("fade", "fade-right");
+visualizador.querySelector(".fechar").addEventListener("click", fechar);
+visualizador.querySelector(".anterior").addEventListener("click", () => mostrar(atual - 1));
+visualizador.querySelector(".proxima").addEventListener("click", () => mostrar(atual + 1));
 
-    container.appendChild(fadeLeft);
-    container.appendChild(fadeRight);
-  });
+// Clicar no fundo escuro também fecha
+visualizador.addEventListener("click", (e) => {
+  if (e.target === visualizador) fechar();
 });
 
-function iniciarCarrosselAutomatico(carrossel) {
-  const imagens = carrossel.querySelectorAll("img");
-  const totalImagens = imagens.length;
-  let index = 0;
-
-  setInterval(() => {
-    index = (index + 1) % totalImagens;
-    const imagem = imagens[index];
-    carrossel.scrollTo({
-      left: imagem.offsetLeft,
-      behavior: 'smooth'
-    });
-  }, 3000); // muda a imagem a cada 3 segundos
-}
-
-// Inicia todos os carrosseis da página
-document.addEventListener("DOMContentLoaded", () => {
-  const todosCarrosseis = document.querySelectorAll(".carrossel");
-  todosCarrosseis.forEach(carrossel => iniciarCarrosselAutomatico(carrossel));
-});
-
-function destacarImagemCentral(carrossel) {
-  const imagens = carrossel.querySelectorAll("img");
-  const centro = carrossel.scrollLeft + carrossel.offsetWidth / 2;
-
-  let imagemMaisPerto = null;
-  let menorDistancia = Infinity;
-
-  imagens.forEach(img => {
-    const centroImagem = img.offsetLeft + img.offsetWidth / 2;
-    const distancia = Math.abs(centro - centroImagem);
-
-    if (distancia < menorDistancia) {
-      menorDistancia = distancia;
-      imagemMaisPerto = img;
-    }
-  });
-
-  imagens.forEach(img => img.classList.remove("destacada"));
-  if (imagemMaisPerto) imagemMaisPerto.classList.add("destacada");
-}
-
-function iniciarCarrosselAutomatico(carrossel) {
-  const imagens = carrossel.querySelectorAll("img");
-  let index = 0;
-
-  setInterval(() => {
-    index++;
-
-    // se passar do final, volta para o início
-    if (index >= imagens.length) {
-      index = 0;
-    }
-
-    const imagemAlvo = imagens[index];
-    carrossel.scrollTo({
-      left: imagemAlvo.offsetLeft,
-      behavior: 'smooth'
-    });
-
-    setTimeout(() => destacarImagemCentral(carrossel), 500);
-  }, 3000); // muda a cada 3 segundos
-
-  carrossel.addEventListener("scroll", () => {
-    setTimeout(() => destacarImagemCentral(carrossel), 100);
-  });
-
-  destacarImagemCentral(carrossel);
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-  const todosCarrosseis = document.querySelectorAll(".carrossel");
-  todosCarrosseis.forEach(carrossel => iniciarCarrosselAutomatico(carrossel));
-});
-
-function clonarExtremos(carrossel) {
-  const imagens = carrossel.querySelectorAll("img");
-  const quantidade = 2; // Número de clones em cada ponta
-
-  // Clones à esquerda
-  for (let i = imagens.length - quantidade; i < imagens.length; i++) {
-    const clone = imagens[i].cloneNode(true);
-    clone.classList.add("clone");
-    carrossel.prepend(clone);
-  }
-
-  // Clones à direita
-  for (let i = 0; i < quantidade; i++) {
-    const clone = imagens[i].cloneNode(true);
-    clone.classList.add("clone");
-    carrossel.appendChild(clone);
-  }
-}
-
-function destacarImagemCentral(carrossel) {
-  const imagens = carrossel.querySelectorAll("img");
-  const centro = carrossel.scrollLeft + carrossel.offsetWidth / 2;
-
-  let maisProxima = null;
-  let menorDistancia = Infinity;
-
-  imagens.forEach(img => {
-    const centroImg = img.offsetLeft + img.offsetWidth / 2;
-    const distancia = Math.abs(centro - centroImg);
-    if (distancia < menorDistancia) {
-      menorDistancia = distancia;
-      maisProxima = img;
-    }
-  });
-
-  imagens.forEach(img => img.classList.remove("destacada"));
-  if (maisProxima) maisProxima.classList.add("destacada");
-}
-
-function iniciarLoop(carrossel) {
-  const imagensReais = carrossel.querySelectorAll("img:not(.clone)");
-  let index = 0;
-
-  const mover = () => {
-    index++;
-    const imagens = carrossel.querySelectorAll("img");
-    const alvo = imagens[index];
-
-    carrossel.scrollTo({
-      left: alvo.offsetLeft,
-      behavior: 'smooth'
-    });
-
-    destacarImagemCentral(carrossel);
-
-    if (index >= imagens.length - 3) { // ajusta baseado nos clones
-      setTimeout(() => {
-        carrossel.scrollLeft = imagensReais[0].offsetLeft;
-        index = 0;
-        destacarImagemCentral(carrossel);
-      }, 600); // espera a rolagem suave terminar
-    }
-  };
-
-  setInterval(mover, 3000);
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-  document.querySelectorAll(".carrossel").forEach(carrossel => {
-    clonarExtremos(carrossel);
-    ajustarScrollInicial(carrossel);
-    destacarImagemCentral(carrossel);
-    iniciarLoop(carrossel);
-
-    carrossel.addEventListener("scroll", () => {
-      setTimeout(() => destacarImagemCentral(carrossel), 100);
-    });
-  });
+// Teclado: Esc fecha, setas navegam
+document.addEventListener("keydown", (e) => {
+  if (visualizador.hidden) return;
+  if (e.key === "Escape") fechar();
+  if (e.key === "ArrowLeft") mostrar(atual - 1);
+  if (e.key === "ArrowRight") mostrar(atual + 1);
 });
