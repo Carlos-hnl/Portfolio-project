@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://carlos-hnl.github.io/Portfolio-project/sitemap.xml

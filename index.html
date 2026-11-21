@@ -3,55 +3,81 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hnl — Portfólio</title>
-  <link rel="icon" href="img/logo.png">
-  <link rel="stylesheet" href="assets/style.css">
-  <script src="assets/script.js" defer></script>
-</head>
-<body>
+  <title>Hnl — Desenho e ilustração</title>
+  <meta name="description" content="Portfólio de Hnl: desenhos em grafite e lápis sobre emoções humanas, entre o figurativo e o abstrato. Prints e encomendas.">
+  <meta name="theme-color" content="#0b0b0b">
 
-  <header>
-    <a href="#topo" class="logo"><img src="img/logo.png" alt="Hnl"></a>
-    <nav>
-      <a href="#trabalhos">Trabalhos</a>
-      <a href="#contorcionismo">Contorcionismo</a>
-      <a href="#sobre">Sobre</a>
-      <a href="#contato">Contato</a>
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Hnl — Desenho e ilustração">
+  <meta property="og:description" content="Desenhos sobre o que não cabe em palavras. Prints e encomendas.">
+  <meta property="og:image" content="https://carlos-hnl.github.io/Portfolio-project/img/compartilhar.jpg">
+  <meta property="og:url" content="https://carlos-hnl.github.io/Portfolio-project/">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="img/logo-192.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="preload" as="image" href="img/obras/livro-fechado-800.webp">
+  <script src="assets/obras.js" defer></script>
+  <script src="assets/main.js" defer></script>
+</head>
+<body data-pagina="inicio">
+  <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="topo">
+    <a class="marca" href="./" aria-label="Hnl — início"><img src="img/logo-192.png" alt="" width="44" height="44"></a>
+    <button class="menu-botao" aria-expanded="false" aria-controls="menu">Menu</button>
+    <nav id="menu" class="menu">
+      <a href="./#obras">Obras</a>
+      <a href="prints.html">Prints</a>
+      <a href="./#sobre">Sobre</a>
+      <a href="./#contato">Contato</a>
     </nav>
   </header>
 
-  <main id="topo">
-    <section class="intro">
-      <h1>Desenhos sobre o que não cabe em palavras.</h1>
-      <p>Grafite, lápis e fotografia.</p>
-    </section>
+  <main id="conteudo">
 
-    <section id="trabalhos">
-      <h2>Trabalhos</h2>
-      <div class="grade">
-        <figure><img src="img/Inalcançável.png" alt="Inalcançável" loading="lazy"><figcaption>Inalcançável</figcaption></figure>
-        <figure><img src="img/Livro Fechado.jpg" alt="Livro Fechado" loading="lazy"><figcaption>Livro Fechado</figcaption></figure>
-        <figure><img src="img/Jardim.jpg" alt="Jardim" loading="lazy"><figcaption>Jardim</figcaption></figure>
-        <figure><img src="img/Desespero (1).jpg" alt="Desespero" loading="lazy"><figcaption>Desespero</figcaption></figure>
-        <figure><img src="img/Rastro.jpeg" alt="Rastro" loading="lazy"><figcaption>Rastro</figcaption></figure>
-        <figure><img src="img/IMG_20240302_183329_198.jpg" alt="Sem título" loading="lazy"><figcaption>Sem título</figcaption></figure>
+    <section class="hero">
+      <div class="hero-texto">
+        <p class="rotulo">Grafite · Lápis · Fotografia</p>
+        <h1>Desenhos sobre o que não cabe em <em>palavras</em>.</h1>
+        <p class="hero-sub">Figuras, sombras e silêncios entre o figurativo e o abstrato.</p>
+        <div class="acoes">
+          <a class="botao" href="#obras">Ver obras</a>
+          <a class="botao botao-linha" href="prints.html">Prints e encomendas</a>
+        </div>
       </div>
+      <a class="hero-obra" id="hero-obra" href="obra.html?id=livro-fechado">
+        <img src="img/obras/livro-fechado-800.webp"
+             srcset="img/obras/livro-fechado-800.webp 640w, img/obras/livro-fechado-1600.webp 1280w"
+             sizes="(max-width: 800px) 90vw, 40vw"
+             width="640" height="800" alt="Livro Fechado" fetchpriority="high">
+        <span class="legenda">Livro Fechado</span>
+      </a>
     </section>
 
-    <section id="contorcionismo">
-      <h2>Contorcionismo</h2>
-      <p class="sub">Série</p>
-      <div class="grade larga">
-        <figure><img src="img/Contorcionismo (2) (1).jpg" alt="Contorcionismo I" loading="lazy"><figcaption>I</figcaption></figure>
-        <figure><img src="img/Contorcionismo 2 (1) (1).jpg" alt="Contorcionismo II" loading="lazy"><figcaption>II</figcaption></figure>
-        <figure><img src="img/contorcionismo 3 (1).jpg" alt="Contorcionismo III" loading="lazy"><figcaption>III</figcaption></figure>
+    <section id="obras" class="secao">
+      <div class="secao-cabeca">
+        <h2>Obras</h2>
+        <div class="filtros" role="group" aria-label="Filtrar obras">
+          <button class="filtro ativo" data-filtro="todas" aria-pressed="true">Todas</button>
+          <button class="filtro" data-filtro="avulsas" aria-pressed="false">Avulsas</button>
+          <button class="filtro" data-filtro="contorcionismo" aria-pressed="false">Série Contorcionismo</button>
+        </div>
       </div>
+      <div class="galeria" id="galeria"></div>
+      <noscript><p>Ative o JavaScript para ver a galeria.</p></noscript>
     </section>
 
-    <section id="sobre" class="sobre">
-      <img src="img/IMG_20250707_015432_103.webp" alt="Foto do artista" loading="lazy">
-      <div>
-        <h2>Sobre</h2>
+    <section id="sobre" class="secao sobre">
+      <figure class="sobre-foto revelar">
+        <img src="img/obras/artista-800.webp" alt="Retrato do artista" width="800" height="800" loading="lazy">
+      </figure>
+      <div class="sobre-texto revelar">
+        <p class="rotulo">Sobre</p>
+        <h2>Um traço para cada inquietação.</h2>
         <p>
           Sou um artista visual que explora emoções humanas por meio do grafite, do lápis e da fotografia.
           Cada obra é um fragmento de sentimentos, inquietações e experiências que ganham forma em traços,
@@ -64,27 +90,28 @@
       </div>
     </section>
 
-    <section id="contato">
-      <h2>Contato</h2>
-      <p>Encomendas, exposições ou só uma conversa:</p>
-      <p class="links">
-        <a href="mailto:seuemail@exemplo.com">seuemail@exemplo.com</a>
-        <a href="https://instagram.com/seuusuario" target="_blank" rel="noopener">Instagram</a>
-      </p>
+    <section class="faixa revelar">
+      <div>
+        <p class="rotulo">Prints e encomendas</p>
+        <h2>Leve uma obra para casa.</h2>
+        <p>Reproduções em papel de qualidade ou um desenho feito sob encomenda.</p>
+      </div>
+      <a class="botao" href="prints.html">Ver prints</a>
     </section>
+
+    <section id="contato" class="secao contato revelar">
+      <p class="rotulo">Contato</p>
+      <h2>Vamos conversar.</h2>
+      <p>Encomendas, exposições, parcerias ou só uma conversa sobre arte.</p>
+      <a class="contato-email" data-email href="#"></a>
+      <ul class="contato-links" id="contato-links"></ul>
+    </section>
+
   </main>
 
-  <footer>© <span id="ano"></span> Hnl</footer>
-
-  <div class="visualizador" hidden>
-    <button class="fechar" aria-label="Fechar">×</button>
-    <button class="anterior" aria-label="Anterior">‹</button>
-    <figure>
-      <img src="" alt="">
-      <figcaption></figcaption>
-    </figure>
-    <button class="proxima" aria-label="Próxima">›</button>
-  </div>
-
+  <footer class="rodape">
+    <span>© <span data-ano></span> Hnl</span>
+    <a href="#conteudo">Voltar ao topo ↑</a>
+  </footer>
 </body>
 </html>
