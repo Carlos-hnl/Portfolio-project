@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Obra — Hnl</title>
+  <meta name="description" content="Obra de Hnl: desenho em grafite e lápis.">
+  <meta name="theme-color" content="#0b0b0b">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Obra — Hnl">
+  <meta property="og:image" content="https://carlos-hnl.github.io/Portfolio-project/img/compartilhar.jpg">
+
+  <link rel="icon" href="img/logo-192.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+  <script src="assets/obras.js" defer></script>
+  <script src="assets/main.js" defer></script>
+</head>
+<body data-pagina="obra">
+  <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="topo">
+    <a class="marca" href="./" aria-label="Hnl — início"><img src="img/logo-192.png" alt="" width="44" height="44"></a>
+    <button class="menu-botao" aria-expanded="false" aria-controls="menu">Menu</button>
+    <nav id="menu" class="menu">
+      <a href="./#obras">Obras</a>
+      <a href="prints.html">Prints</a>
+      <a href="./#sobre">Sobre</a>
+      <a href="./#contato">Contato</a>
+    </nav>
+  </header>
+
+  <main id="conteudo" class="pagina-obra">
+    <a class="voltar" href="./#obras">← Todas as obras</a>
+
+    <article class="obra" id="obra">
+      <button class="obra-imagem" id="obra-imagem" aria-label="Ver em tela cheia">
+        <img src="" alt="">
+      </button>
+
+      <div class="obra-info">
+        <a class="rotulo" id="obra-serie" href="#" hidden></a>
+        <h1 id="obra-titulo"></h1>
+        <dl class="ficha" id="obra-ficha"></dl>
+        <p class="obra-descricao" id="obra-descricao"></p>
+        <div class="acoes" id="obra-acoes"></div>
+        <p class="dica">Toque ou clique na imagem para ampliar. Use as setas do teclado para navegar.</p>
+      </div>
+    </article>
+
+    <nav class="obra-nav" aria-label="Outras obras">
+      <a id="obra-anterior" href="#"></a>
+      <a id="obra-proxima" href="#"></a>
+    </nav>
+
+    <section class="secao mais-obras">
+      <h2>Mais obras</h2>
+      <div class="tira" id="mais-obras"></div>
+    </section>
+
+    <div class="nao-encontrada" id="nao-encontrada" hidden>
+      <h1>Obra não encontrada.</h1>
+      <p><a class="botao" href="./#obras">Ver todas as obras</a></p>
+    </div>
+  </main>
+
+  <div class="zoom" id="zoom" hidden>
+    <button class="zoom-fechar" aria-label="Fechar">×</button>
+    <img src="" alt="">
+  </div>
+
+  <footer class="rodape">
+    <span>© <span data-ano></span> Hnl</span>
+    <a href="#conteudo">Voltar ao topo ↑</a>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prints e encomendas — Hnl</title>
+  <meta name="description" content="Reproduções das obras de Hnl e desenhos sob encomenda.">
+  <meta name="theme-color" content="#0b0b0b">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Prints e encomendas — Hnl">
+  <meta property="og:description" content="Reproduções das obras e desenhos sob encomenda.">
+  <meta property="og:image" content="https://carlos-hnl.github.io/Portfolio-project/img/compartilhar.jpg">
+
+  <link rel="icon" href="img/logo-192.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+  <script src="assets/obras.js" defer></script>
+  <script src="assets/main.js" defer></script>
+</head>
+<body data-pagina="prints">
+  <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="topo">
+    <a class="marca" href="./" aria-label="Hnl — início"><img src="img/logo-192.png" alt="" width="44" height="44"></a>
+    <button class="menu-botao" aria-expanded="false" aria-controls="menu">Menu</button>
+    <nav id="menu" class="menu">
+      <a href="./#obras">Obras</a>
+      <a href="prints.html" aria-current="page">Prints</a>
+      <a href="./#sobre">Sobre</a>
+      <a href="./#contato">Contato</a>
+    </nav>
+  </header>
+
+  <main id="conteudo">
+    <section class="secao prints-intro">
+      <p class="rotulo">Prints e encomendas</p>
+      <h1>Leve uma obra para casa.</h1>
+      <p>Reproduções das obras impressas em papel de qualidade, assinadas à mão.</p>
+
+      <ol class="passos">
+        <li><strong>Escolha</strong> a obra e o tamanho.</li>
+        <li><strong>Envie o pedido</strong>: a mensagem já vai pronta.</li>
+        <li><strong>Combinamos</strong> pagamento, prazo e entrega.</li>
+      </ol>
+    </section>
+
+    <section class="secao">
+      <div class="prints" id="prints"></div>
+    </section>
+
+    <section class="secao encomenda revelar" id="encomenda">
+      <div>
+        <p class="rotulo">Sob encomenda</p>
+        <h2>Um desenho feito para você.</h2>
+        <p>
+          Retratos, ilustrações e peças originais a partir de uma ideia, uma história ou uma fotografia.
+          Conte o que você imagina e eu respondo com proposta de tamanho, prazo e valor.
+        </p>
+      </div>
+      <a class="botao" id="botao-encomenda" href="#" target="_blank" rel="noopener">Pedir orçamento</a>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <span>© <span data-ano></span> Hnl</span>
+    <a href="#conteudo">Voltar ao topo ↑</a>
+  </footer>
+</body>
+</html>
