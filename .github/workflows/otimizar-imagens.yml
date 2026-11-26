@@ -1,0 +1,42 @@
+# Quando uma imagem nova chega em img/originais/, gera as versões leves (WebP)
+# e atualiza assets/imagens.js automaticamente. Você não precisa ter Python instalado.
+
+name: Otimizar imagens
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "img/originais/**"
+  workflow_dispatch: # permite rodar à mão pela aba Actions
+
+permissions:
+  contents: write
+
+jobs:
+  otimizar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Instalar Pillow
+        run: pip install pillow
+
+      - name: Gerar imagens
+        run: python tools/otimizar_imagens.py
+
+      - name: Salvar no repositório
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add img/obras assets/imagens.js img/compartilhar.jpg img/logo-192.png
+          if git diff --cached --quiet; then
+            echo "Nenhuma imagem nova."
+          else
+            git commit -m "Gera imagens otimizadas"
+            git push
+          fi

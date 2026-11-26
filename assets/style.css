@@ -370,7 +370,7 @@ h2 em {
 
 .cartao:hover .moldura img,
 .tira-item:hover img,
-.print .moldura:hover img {
+.esboco:hover .moldura img {
   transform: scale(1.03);
   opacity: 1;
 }
@@ -422,7 +422,7 @@ h2 em {
   margin-top: 16px;
 }
 
-/* ---------- Faixa de prints ---------- */
+/* ---------- Faixa À venda ---------- */
 .faixa {
   max-width: calc(var(--largura) - 2 * var(--margem));
   margin: 0 auto;
@@ -575,20 +575,32 @@ h2 em {
 
 .obra-info h1 {
   font-size: clamp(40px, 5vw, 68px);
+  margin-bottom: 20px;
+}
+
+.obra-descricao {
+  color: var(--texto-2);
+  font-size: 17px;
   margin-bottom: 28px;
+}
+
+.bloco-titulo {
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--texto-2);
+  margin: 8px 0 12px;
 }
 
 .ficha {
   display: grid;
   gap: 10px;
-  margin-bottom: 28px;
-  padding: 20px 0;
+  margin-bottom: 32px;
+  padding: 16px 0;
   border-top: 1px solid var(--linha);
   border-bottom: 1px solid var(--linha);
-}
-
-.ficha:empty {
-  display: none;
 }
 
 .ficha div {
@@ -602,14 +614,81 @@ h2 em {
   color: var(--texto-3);
 }
 
-.obra-descricao {
-  color: var(--texto-2);
-  font-size: 17px;
-  margin-bottom: 32px;
+.ficha dd {
+  text-align: right;
 }
 
-.obra-info .acoes {
-  margin-bottom: 20px;
+/* Blocos de compra (original e print) */
+.compra {
+  padding: 20px;
+  margin-bottom: 16px;
+  background: var(--fundo-2);
+  border: 1px solid var(--linha);
+}
+
+.compra-cabeca {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 4px;
+}
+
+.compra-cabeca .bloco-titulo {
+  margin: 0;
+}
+
+.preco {
+  font-family: var(--serifa);
+  font-size: 32px;
+  line-height: 1.2;
+  margin: 4px 0 8px;
+}
+
+.nota {
+  font-size: 14px;
+  color: var(--texto-2);
+  margin-bottom: 16px;
+}
+
+.compra .botao {
+  width: 100%;
+}
+
+.status {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 999px;
+  border: 1px solid currentColor;
+}
+
+.status-disponivel { color: #b7c9a8; }
+.status-reservado { color: #d8c18f; }
+.status-vendido { color: var(--texto-3); }
+
+.acoes-secundarias {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 20px;
+  margin-top: 8px;
+}
+
+.link-botao {
+  background: none;
+  border: 0;
+  padding: 0;
+  font-size: 14px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  color: var(--texto-2);
+  cursor: pointer;
+}
+
+.link-botao:hover {
+  color: var(--texto);
 }
 
 .dica {
@@ -706,8 +785,11 @@ h2 em {
   position: fixed;
   inset: 0;
   z-index: 200;
-  display: grid;
-  place-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
   padding: 24px;
   background: rgba(5, 5, 5, 0.97);
   cursor: zoom-out;
@@ -716,8 +798,34 @@ h2 em {
 
 .zoom img {
   max-width: 100%;
-  max-height: calc(100vh - 48px);
+  max-height: calc(100vh - 200px);
   object-fit: contain;
+}
+
+.zoom:has(.zoom-legenda:empty) img {
+  max-height: calc(100vh - 48px);
+}
+
+.zoom-legenda {
+  text-align: center;
+  font-size: 14px;
+  color: var(--texto-2);
+  cursor: default;
+}
+
+.zoom-legenda:empty {
+  display: none;
+}
+
+.zoom-legenda strong {
+  font-family: var(--serifa);
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--texto);
+}
+
+.zoom-legenda a {
+  color: var(--texto);
 }
 
 .zoom-fechar {
@@ -740,20 +848,20 @@ h2 em {
   from { opacity: 0; }
 }
 
-/* ---------- Página de prints ---------- */
-.prints-intro {
-  padding-bottom: 32px;
+/* ---------- Introdução das páginas internas ---------- */
+.intro {
+  padding-bottom: 24px;
 }
 
-.prints-intro h1 {
+.intro h1 {
   font-size: clamp(44px, 7vw, 88px);
   margin-bottom: 20px;
 }
 
-.prints-intro > p:not(.rotulo) {
+.intro > p:not(.rotulo) {
   color: var(--texto-2);
   font-size: 18px;
-  max-width: 48ch;
+  max-width: 52ch;
 }
 
 .passos {
@@ -787,60 +895,130 @@ h2 em {
   font-weight: 500;
 }
 
-.prints {
+/* ---------- À venda ---------- */
+.contagem {
+  font-size: 13px;
+  color: var(--texto-3);
+}
+
+.catalogo {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 56px 32px;
 }
 
-.print {
+.item-venda {
   display: flex;
   flex-direction: column;
-  scroll-margin-top: calc(var(--topo) + 24px);
+  text-decoration: none;
 }
 
-.print .moldura {
+.item-venda .moldura {
   aspect-ratio: 1 / 1;
   display: grid;
   place-items: center;
   padding: 28px;
 }
 
-.print .moldura img {
-  max-height: 100%;
+.item-venda .moldura img {
   width: auto;
+  max-height: 100%;
   object-fit: contain;
   box-shadow: 0 20px 40px -20px rgba(0, 0, 0, 0.9);
 }
 
-.print.selecionado .moldura {
-  outline: 1px solid var(--texto);
-  outline-offset: 6px;
+.item-venda:hover .moldura img {
+  transform: scale(1.03);
+  opacity: 1;
 }
 
-.print-corpo {
+.item-corpo {
+  padding-top: 16px;
+}
+
+.item-corpo h3 {
+  font-family: var(--serifa);
+  font-weight: 400;
+  font-size: 26px;
+  line-height: 1.2;
+}
+
+.item-detalhes {
+  font-size: 13px;
+  color: var(--texto-3);
+  margin-top: 2px;
+}
+
+.precos {
+  list-style: none;
+  margin: 12px 0;
+}
+
+.precos li {
   display: flex;
-  flex-direction: column;
-  flex: 1;
-  padding-top: 18px;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--linha);
+  font-size: 14px;
 }
 
-.print-titulo {
-  font-size: 24px;
-  margin-bottom: 16px;
+.precos span {
+  color: var(--texto-3);
 }
 
+.precos strong {
+  font-weight: 500;
+}
+
+.item-link {
+  font-size: 13px;
+  color: var(--texto-2);
+  transition: color 0.2s;
+}
+
+.item-venda:hover .item-link {
+  color: var(--texto);
+}
+
+.vazio {
+  color: var(--texto-2);
+  padding: 40px 0;
+}
+
+.vazio-grande {
+  text-align: center;
+  padding: 80px 0;
+  border: 1px dashed var(--linha);
+}
+
+.vazio-grande p {
+  font-family: var(--serifa);
+  font-size: 28px;
+  margin-bottom: 24px;
+}
+
+/* Selo "À venda" sobre as obras da galeria */
+.moldura {
+  position: relative;
+}
+
+.selo {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 3px 10px;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: rgba(11, 11, 11, 0.8);
+  color: var(--texto);
+  border-radius: 999px;
+}
+
+/* Tamanhos de print */
 .tamanhos {
   border: 0;
-  margin-bottom: 20px;
-}
-
-.tamanhos legend {
-  font-size: 12px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--texto-3);
-  margin-bottom: 8px;
+  margin-bottom: 16px;
 }
 
 .tamanhos label {
@@ -854,7 +1032,34 @@ h2 em {
 }
 
 .tamanhos input {
-  accent-color: var(--texto);
+  appearance: none;
+  -webkit-appearance: none;
+  flex: none;
+  width: 16px;
+  height: 16px;
+  border: 1px solid var(--texto-3);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+.tamanhos input::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--texto);
+  transform: scale(0);
+  transition: transform 0.15s;
+}
+
+.tamanhos input:checked {
+  border-color: var(--texto);
+}
+
+.tamanhos input:checked::before {
+  transform: scale(1);
 }
 
 .tamanhos span {
@@ -873,10 +1078,6 @@ h2 em {
   color: var(--texto-2);
 }
 
-.print .botao {
-  margin-top: auto;
-}
-
 .encomenda {
   display: flex;
   flex-wrap: wrap;
@@ -892,6 +1093,129 @@ h2 em {
 .encomenda p:not(.rotulo) {
   color: var(--texto-2);
   max-width: 56ch;
+}
+
+/* ---------- Esboços ---------- */
+.esboco {
+  width: 100%;
+  background: none;
+  border: 0;
+  text-align: left;
+  cursor: zoom-in;
+}
+
+/* ---------- Página Sobre ---------- */
+.sobre-pagina {
+  align-items: start;
+}
+
+.sobre-pagina h1 {
+  font-size: clamp(40px, 5vw, 64px);
+  margin-bottom: 28px;
+}
+
+.sobre-pagina .sobre-texto p {
+  color: var(--texto-2);
+  font-size: 17px;
+  max-width: 60ch;
+}
+
+.sobre-pagina .sobre-texto p + p {
+  margin-top: 16px;
+}
+
+.sobre-local {
+  margin-top: 24px;
+  font-size: 14px !important;
+  color: var(--texto-3) !important;
+}
+
+.curriculo h2,
+.faq h2 {
+  margin-bottom: 40px;
+}
+
+.curriculo-colunas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 40px;
+}
+
+.curriculo h3 {
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--texto-2);
+  margin-bottom: 12px;
+}
+
+.curriculo ul {
+  list-style: none;
+}
+
+.curriculo li {
+  display: flex;
+  gap: 16px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--linha);
+  font-size: 15px;
+}
+
+.curriculo li span {
+  min-width: 3.5em;
+  color: var(--texto-3);
+}
+
+.faq-lista {
+  max-width: 820px;
+  border-top: 1px solid var(--linha);
+}
+
+.faq details {
+  border-bottom: 1px solid var(--linha);
+}
+
+.faq summary {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 0;
+  font-family: var(--serifa);
+  font-size: 22px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.faq summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq summary::after {
+  content: "+";
+  font-family: var(--sans);
+  color: var(--texto-2);
+  transition: transform 0.2s;
+}
+
+.faq details[open] summary::after {
+  transform: rotate(45deg);
+}
+
+.faq details p {
+  color: var(--texto-2);
+  padding-bottom: 20px;
+  max-width: 64ch;
+}
+
+.visualmente-oculto {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
 }
 
 /* ---------- Aparecer ao rolar ---------- */
