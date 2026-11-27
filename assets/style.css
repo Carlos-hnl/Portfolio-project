@@ -534,8 +534,23 @@ h2 em {
   }
 }
 
+.rodape {
+  flex-wrap: wrap;
+  gap: 12px 32px;
+}
+
 .rodape a {
   text-decoration: none;
+}
+
+.rodape-contato {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+}
+
+.rodape-contato a {
+  color: var(--texto-2);
 }
 
 .rodape a:hover {

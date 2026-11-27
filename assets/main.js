@@ -100,6 +100,10 @@ function montarTopo() {
 function montarRodape() {
   $(".rodape").innerHTML = `
     <span>© ${new Date().getFullYear()} ${esc(SITE.nome)}. Todas as obras protegidas por direitos autorais.</span>
+    <span class="rodape-contato">
+      <a href="mailto:${esc(SITE.email)}">${esc(SITE.email)}</a>
+      ${SITE.instagram ? `<a href="https://instagram.com/${esc(SITE.instagram)}" target="_blank" rel="noopener">@${esc(SITE.instagram)}</a>` : ""}
+    </span>
     <a href="#conteudo">Voltar ao topo ↑</a>`;
 }
 
@@ -113,7 +117,7 @@ function preencherContatos() {
   });
 
   const redes = [];
-  if (SITE.instagram) redes.push(["Instagram", `https://instagram.com/${SITE.instagram}`]);
+  if (SITE.instagram) redes.push([`@${SITE.instagram}`, `https://instagram.com/${SITE.instagram}`]);
   if (SITE.whatsapp) redes.push(["WhatsApp", `https://wa.me/${SITE.whatsapp}`]);
   $$("[data-redes]").forEach((ul) => {
     ul.innerHTML = redes
