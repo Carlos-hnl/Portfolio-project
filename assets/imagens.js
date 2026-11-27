@@ -6,12 +6,12 @@ const IMAGENS = {
     800
   ],
   "brincando-de-voar": [
-    650,
+    800,
     800
   ],
   "cama": [
-    792,
-    800
+    800,
+    799
   ],
   "cerebro": [
     800,
@@ -38,7 +38,7 @@ const IMAGENS = {
     532
   ],
   "faminto": [
-    496,
+    600,
     800
   ],
   "inalcancavel": [
@@ -79,6 +79,6 @@ const IMAGENS = {
   ],
   "sombras-no-centro": [
     800,
-    597
+    524
   ]
 };
