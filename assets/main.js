@@ -73,6 +73,7 @@ function montarTopo() {
   $(".topo").innerHTML = `
     <a class="marca" href="./" aria-label="${esc(SITE.nome)}, início">
       <img src="img/logo-192.png" alt="" width="44" height="44">
+      <span class="marca-nome">${esc(SITE.nome)}</span>
     </a>
     <button class="menu-botao" aria-expanded="false" aria-controls="menu">Menu</button>
     <nav id="menu" class="menu">
@@ -103,6 +104,9 @@ function montarRodape() {
 }
 
 function preencherContatos() {
+  $$("[data-nome]").forEach((el) => (el.textContent = SITE.nome));
+  $$("[data-descricao]").forEach((el) => (el.textContent = SITE.descricao || ""));
+
   $$("[data-email]").forEach((el) => {
     el.href = `mailto:${SITE.email}`;
     el.textContent = SITE.email;
