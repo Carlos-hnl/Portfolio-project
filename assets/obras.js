@@ -29,6 +29,13 @@ const PRINTS = {
   ],
 };
 
+// ---------------- Categorias ----------------
+// Viram filtros na galeria. Use  categoria: "pintura"  na obra.
+// Obras sem série e sem categoria aparecem no filtro "Desenhos".
+const CATEGORIAS = {
+  pintura: "Pinturas",
+};
+
 // ---------------- Séries ----------------
 const SERIES = {
   quadrinhos: {
@@ -49,6 +56,7 @@ const SERIES = {
     id: "nome-do-arquivo",          // nome da imagem em img/originais, sem extensão
     titulo: "Título da obra",
     serie: "",                      // id de uma série acima, ou ""
+    categoria: "",                  // "pintura" para óleo, giz pastel etc.; "" para desenho
     ano: "2025",
     tecnica: "Grafite sobre papel", // ex.: "Óleo sobre tela", "Fotografia digital"
     dimensoes: "30 × 42 cm",
@@ -138,6 +146,7 @@ const OBRAS = [
     id: "brincando-de-voar",
     titulo: "Brincando de Voar",
     serie: "",
+    categoria: "pintura",
     ano: "",
     tecnica: "Óleo sobre tela",
     dimensoes: "",
@@ -149,6 +158,7 @@ const OBRAS = [
     id: "presa",
     titulo: "Presa",
     serie: "",
+    categoria: "pintura",
     ano: "",
     tecnica: "Giz pastel oleoso e tinta óleo sobre papel",
     dimensoes: "",
@@ -160,6 +170,7 @@ const OBRAS = [
     id: "portal",
     titulo: "Portal",
     serie: "",
+    categoria: "pintura",
     ano: "",
     tecnica: "Óleo sobre papel",
     dimensoes: "",
@@ -171,6 +182,7 @@ const OBRAS = [
     id: "cama",
     titulo: "Cama",
     serie: "",
+    categoria: "pintura",
     ano: "",
     tecnica: "Óleo sobre tela",
     dimensoes: "",
@@ -182,6 +194,7 @@ const OBRAS = [
     id: "sombras-no-centro",
     titulo: "Sombras no Centro",
     serie: "",
+    categoria: "pintura",
     ano: "",
     tecnica: "Óleo sobre tela",
     dimensoes: "",
@@ -193,6 +206,7 @@ const OBRAS = [
     id: "faminto",
     titulo: "Faminto",
     serie: "",
+    categoria: "pintura",
     ano: "",
     tecnica: "Giz pastel oleoso sobre papel",
     dimensoes: "",
