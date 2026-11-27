@@ -49,6 +49,10 @@ const IMAGENS = {
     640,
     800
   ],
+  "livro-aberto": [
+    800,
+    800
+  ],
   "livro-fechado": [
     640,
     800
@@ -71,10 +75,6 @@ const IMAGENS = {
   ],
   "rastro": [
     640,
-    800
-  ],
-  "sem-titulo": [
-    800,
     800
   ],
   "sombras-no-centro": [
