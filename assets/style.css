@@ -172,9 +172,23 @@ h2 em {
   -webkit-backdrop-filter: blur(10px);
 }
 
+.marca {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
 .marca img {
   width: 44px;
   height: 44px;
+}
+
+.marca-nome {
+  font-family: var(--serifa);
+  font-size: 22px;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
 }
 
 .menu {
@@ -264,9 +278,17 @@ h2 em {
   margin-bottom: 24px;
 }
 
+.hero .hero-nome {
+  font-size: clamp(56px, 10vw, 128px);
+  line-height: 0.95;
+  margin-bottom: 20px;
+}
+
 .hero-sub {
   color: var(--texto-2);
-  font-size: 18px;
+  font-family: var(--serifa);
+  font-style: italic;
+  font-size: clamp(20px, 2.2vw, 26px);
   max-width: 32ch;
   margin-bottom: 40px;
 }

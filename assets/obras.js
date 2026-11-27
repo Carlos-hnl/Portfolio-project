@@ -12,7 +12,8 @@
 
 // ---------------- Contato e informações gerais ----------------
 const SITE = {
-  nome: "Hnl",
+  nome: "Carlos HNL",
+  descricao: "Artista visual em constante experimentação.",
   email: "seuemail@exemplo.com",    // troque pelo seu
   instagram: "seuusuario",          // só o usuário, sem @
   whatsapp: "",                     // só números com DDI e DDD, ex.: "5521999998888"
