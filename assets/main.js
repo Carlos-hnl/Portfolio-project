@@ -199,12 +199,15 @@ function paginaInicio() {
       <span class="legenda">${esc(destaque.titulo)}</span>`;
   }
 
-  // Filtros: Todas, Avulsas (se houver) e uma por série
+  // Filtros: Todas, Desenhos (obras sem série nem categoria), uma por categoria e uma por série
   const series = [...new Set(OBRAS.map((o) => o.serie).filter(Boolean))];
-  const temAvulsas = OBRAS.some((o) => !o.serie);
+  const categorias = [...new Set(OBRAS.map((o) => o.categoria).filter(Boolean))];
+  const temDesenhos = OBRAS.some((o) => !o.serie && !o.categoria);
   const filtros = [["todas", "Todas"]];
-  if (temAvulsas && series.length) filtros.push(["avulsas", "Avulsas"]);
+  if (temDesenhos && (series.length || categorias.length)) filtros.push(["desenhos", "Desenhos"]);
+  categorias.forEach((c) => filtros.push([c, CATEGORIAS[c] || c]));
   series.forEach((s) => filtros.push([s, `Série ${SERIES[s] ? SERIES[s].nome : s}`]));
+  const grupos = (o) => [o.serie, o.categoria, !o.serie && !o.categoria && "desenhos"].filter(Boolean).join(" ");
   $("#filtros").innerHTML = filtros.length > 1
     ? filtros
         .map(([valor, nome], i) => `<button class="filtro${i ? "" : " ativo"}" data-filtro="${valor}" aria-pressed="${!i}">${esc(nome)}</button>`)
@@ -213,19 +216,19 @@ function paginaInicio() {
 
   $("#galeria").innerHTML = OBRAS.map(
     (obra) => `
-    <a class="cartao revelar" href="${linkObra(obra)}" data-serie="${obra.serie || "avulsas"}">
+    <a class="cartao revelar" href="${linkObra(obra)}" data-grupos="${grupos(obra)}">
       <div class="moldura">
         ${imgHTML(obra.id, obra.alt || obra.titulo)}
         ${originalAVenda(obra) ? `<span class="selo">${statusOriginal(obra) === "reservado" ? "Reservado" : "À venda"}</span>` : ""}
       </div>
       <div class="cartao-legenda">
         <span class="cartao-titulo">${esc(obra.titulo)}</span>
-        <span class="cartao-serie">${esc(nomeSerie(obra) || obra.ano)}</span>
+        <span class="cartao-serie">${esc(nomeSerie(obra) || (obra.categoria && CATEGORIAS[obra.categoria] ? CATEGORIAS[obra.categoria].replace(/s$/, "") : "") || obra.ano)}</span>
       </div>
     </a>`
   ).join("");
 
-  iniciarFiltros($("#filtros"), () => $$("#galeria .cartao"), "serie");
+  iniciarFiltros($("#filtros"), () => $$("#galeria .cartao"), "grupos");
 
   // Resumo do "Sobre"
   $("#sobre-titulo").textContent = SOBRE.titulo;
